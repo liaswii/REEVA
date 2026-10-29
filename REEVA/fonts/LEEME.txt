@@ -1,0 +1,4 @@
+Pon aqui los archivos de la fuente Garet con estos nombres exactos:
+  Garet-Book.woff2   (o .otf / .ttf)   -> texto normal
+  Garet-Heavy.woff2  (o .otf / .ttf)   -> negrita
+Si no estan, la pagina usa Syne como reemplazo.

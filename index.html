@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>REEVA</title>
+<link rel="icon" href="images/logo.png">
+
+<!-- Tipografías: Syne (títulos y menú) e Inter (textos) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Syne:wght@500;600;700;800&display=swap">
+<!-- Iconos de redes sociales -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<!-- Mapa interactivo (Leaflet + OpenStreetMap) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+
+<!-- ============ ENCABEZADO (línea completa de punta a punta) ============ -->
+<header class="site-header" id="top">
+  <a class="logo" href="#home" aria-label="REEVA, inicio"><img src="images/logo-transparente.png" alt="REEVA"></a>
+
+  <nav class="menu" id="menu" aria-label="Principal">
+    <a href="#home" data-p="home">Home</a>
+    <a href="#collections" data-p="collections">Collections Centers</a>
+    <a href="#about" data-p="about">About REEVA</a>
+    <a href="#marketplace" data-p="marketplace">Marketplace</a>
+    <a href="#blog" data-p="blog">Blog</a>
+  </nav>
+
+  <div class="tools">
+    <button class="login" type="button" aria-label="Log In">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="currentColor"/><circle cx="16" cy="12.3" r="5" style="fill:var(--cream)"/><path d="M6.4 25.2c1.3-4.5 5.1-6.9 9.6-6.9s8.3 2.4 9.6 6.9a14 14 0 0 1-19.2 0z" style="fill:var(--cream)"/></svg>
+    </button>
+    <button class="cart" type="button" aria-label="Carrito de compras, 0 artículos">
+      <svg viewBox="0 0 32 40" aria-hidden="true"><path d="M10.4 13V9.6a5.6 5.6 0 0 1 11.2 0V13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M3.4 12.5h25.2l2 26.5H1.4z" fill="currentColor"/></svg>
+      <span class="count" id="cartCount">0</span>
+    </button>
+    <button class="burger" id="burger" type="button" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HOME ============ -->
+<div class="page" id="p-home">
+
+  <!-- Imagen de fondo FIJA: no se mueve, las secciones la tapan al subir -->
+  <div class="hero-bg" aria-hidden="true"><img src="images/hero.jpg" alt=""></div>
+
+  <!-- 1. HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-copy">
+      <h1 aria-label="Transform your forgotten clothes">
+        <span class="w"><span style="--i:0">Transform</span></span>
+        <span class="w"><span style="--i:1">your</span></span>
+        <span class="w"><span style="--i:2">forgotten</span></span>
+        <span class="w"><span style="--i:3">clothes</span></span>
+      </h1>
+      <p class="hero-lead fadeup" style="--d:1s">REEVA connects people, local talent, and sustainable fashion to give every garment a second life.</p>
+      <div class="cta fadeup" style="--d:1.2s">
+        <a class="btn btn-red" href="#marketplace">Explore Marketplace</a>
+        <a class="btn btn-cream" href="#collections">Collections Centers</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. THE IMPACT OF FASHION -->
+  <section class="block impact" id="impact">
+    <div class="impact-top">
+      <div class="impact-left">
+        <h2 class="rv">The Impact of Fashion</h2>
+        <p class="lead rv" style="--d:.15s">The textile industry is the most polluting on the planet. Every year, 92 million tons of textile waste pile up, creating a global environmental crisis that needs an urgent response.</p>
+      </div>
+      <div class="impact-right">
+        <div class="stat rv from-right">
+          <div class="num" data-count="85" data-suffix="%">0</div>
+          <p>Percentage of clothing that ends up in landfills.</p>
+        </div>
+        <div class="stat rv from-right" style="--d:.2s">
+          <div class="num" data-count="500" data-suffix="">0</div>
+          <p>Diseñadores emergentes que impulsamos a través de REEVA.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="landfill imgwrap">
+      <img src="images/impacto.jpg" alt="Montaña de residuos textiles en un vertedero">
+      <div class="landfill-big rv" style="--d:.5s">
+        <span class="n" data-count="92" data-suffix="">0</span>
+        <span class="u">millones</span>
+      </div>
+      <p class="landfill-cap rv" style="--d:.7s">Toneladas de residuos textiles generadas anualmente.</p>
+    </div>
+  </section>
+
+  <!-- 3. OUR SOLUTION -->
+  <section class="block solution" id="solution">
+    <div class="solution-text">
+      <h2 class="rv">Our Solution</h2>
+      <p class="rv" style="--d:.15s">REEVA connects donors, emerging designers, and conscious buyers, driving a circular economy where every garment tells a new story.</p>
+    </div>
+    <div class="solution-img imgwrap">
+      <img src="images/equipo.jpg" alt="Equipo REEVA con sudaderas rojas y jeans de patchwork">
+    </div>
+  </section>
+
+  <!-- 4. HOW IT WORKS (banda azul) -->
+  <section class="how" id="how">
+    <h2 class="rv">How It Works</h2>
+    <p class="lead rv" style="--d:.12s">A process designed to close the fashion loop and give new life to every garment.</p>
+    <div class="steps">
+      <div class="step rv"><span class="no">01</span><h3>Donation</h3><p>Send your forgotten clothes to our collection centers to start your new story.</p></div>
+      <div class="step rv" style="--d:.15s"><span class="no">02</span><h3>Transformation</h3><p>Emerging designers reimagine each garment using artisanal upcycling techniques.</p></div>
+      <div class="step rv" style="--d:.3s"><span class="no">03</span><h3>Post</h3><p>Each piece is documented with its story and shared on our digital platform.</p></div>
+      <div class="step rv" style="--d:.45s"><span class="no">04</span><h3>Purchase</h3><p>Find your new piece with a story and support our sustainable mission.</p></div>
+    </div>
+  </section>
+
+  <!-- 5. ENVIRONMENTAL IMPACT -->
+  <section class="block env" id="env">
+    <h2 class="rv">Environmental Impact</h2>
+    <p class="lead rv" style="--d:.12s">REEVA measures change through action. Every transformed garment prevents a significant impact on the planet.</p>
+    <div class="metrics">
+      <div class="metric rv">
+        <h3>Recovered Kilograms</h3>
+        <div class="num" data-count="12500" data-suffix=" kg">0</div>
+        <p>Textiles saved from landfills and local recycling processes.</p>
+      </div>
+      <div class="metric rv" style="--d:.15s">
+        <h3>Prendas Transformadas</h3>
+        <div class="num" data-count="450" data-suffix=" garments">0</div>
+        <p>Creaciones únicas diseñadas para darle una segunda vida a la ropa.</p>
+      </div>
+      <div class="metric rv" style="--d:.3s">
+        <h3>Emisiones Evitadas</h3>
+        <div class="num" data-count="12.5" data-dec="1" data-suffix=" T CO₂">0</div>
+        <p>Impacto positivo en el clima al evitar la producción de nuevas prendas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. NUESTROS ALIADOS -->
+  <section class="block aliados" id="aliados">
+    <h2 class="rv">Nuestros Aliados</h2>
+    <p class="lead rv" style="--d:.12s">Impulsamos la innovación sostenible a través de la colaboración con instituciones líderes en educación y conservación ambiental.</p>
+    <div class="allies">
+      <article class="ally">
+        <div class="ally-img logo imgwrap"><img src="images/inadeh-logo.png" alt="Logo de INADEH"></div>
+        <h3 class="rv">INADEH</h3>
+        <p class="rv">Institución dedicada a la formación técnica y profesional de jóvenes talentos en el sector de la moda.</p>
+      </article>
+      <article class="ally">
+        <div class="ally-img logo imgwrap" style="--d:.15s"><img src="images/universidad-panama-logo.png" alt="Escudo de la Universidad de Panamá"></div>
+        <h3 class="rv" style="--d:.15s">Universidad de Panamá</h3>
+        <p class="rv" style="--d:.15s">Centro de excelencia académica impulsando la innovación y el compromiso social a través de la educación.</p>
+      </article>
+      <article class="ally">
+        <div class="ally-img imgwrap"><img src="images/centros-comunitarios.jpg" alt="Centros comunitarios aliados de REEVA"></div>
+        <h3 class="rv">Centros Comunitarios</h3>
+        <p class="rv">Aliados locales comprometidos con la economía circular y el reuso de materiales textiles.</p>
+      </article>
+      <article class="ally">
+        <div class="ally-img imgwrap" style="--d:.15s"><img src="images/organizaciones-ambientales.jpg" alt="Organizaciones ambientales aliadas de REEVA"></div>
+        <h3 class="rv" style="--d:.15s">Organizaciones Ambientales</h3>
+        <p class="rv" style="--d:.15s">Partners en la conservación del medio ambiente y la reducción de residuos textiles industriales.</p>
+      </article>
+    </div>
+  </section>
+</div>
+
+<!-- ============ OTRAS PÁGINAS (vacías por ahora) ============ -->
+<div class="page" id="p-collections">
+  <section class="block centers">
+    <h1 class="centers-title rv">Collection Centers</h1>
+    <p class="lead rv" style="--d:.1s">Join our recycling network. Find the nearest collection points and help give a second life to the clothes you no longer use.</p>
+
+    <div class="map-wrap">
+      <div id="map" role="region" aria-label="Mapa de puntos de acopio"></div>
+      <div class="map-toggle" role="group" aria-label="Tipo de mapa">
+        <button type="button" class="on" data-layer="map">Mapa</button>
+        <button type="button" data-layer="sat">Satélite</button>
+      </div>
+    </div>
+
+    <div class="info">
+      <div class="rv">
+        <h3>Opening Hours</h3>
+        <p>Monday to Friday: 09:00 — 18:00</p>
+        <p>Saturdays: 09:00 — 13:00</p>
+      </div>
+      <div class="rv" style="--d:.15s">
+        <h3>Clothing Pickup</h3>
+        <p>Clothes in good condition</p>
+        <p>Occasional-use clothing</p>
+        <p>Textile accessories</p>
+      </div>
+    </div>
+  </section>
+</div>
+<div class="page" id="p-about">
+  <section class="about-mision" style="padding-left:2.3vw;padding-right:3.5vw">
+    <div class="txt">
+      <h1 class="rv">Nuestra Misión</h1>
+      <p class="rv" style="--d:.15s">Impulsamos el talento local mientras transformamos el impacto ambiental. En REEVA, conectamos donantes, diseñadores emergentes y consumidores conscientes para darle una segunda vida a la ropa y construir una moda más circular.</p>
+    </div>
+    <div class="foto imgslide"><img src="images/senora-cociendo.jpg" alt="Diseñadora trabajando una prenda sobre una mesa de madera"></div>
+  </section>
+  <section class="about-valores">
+    <div class="intro">
+      <h2 class="rv">Nuestros Valores</h2>
+      <p class="rv" style="--d:.15s">REEVA es un movimiento impulsado por la sostenibilidad, la innovación y la inclusión. Nuestra misión es transformar el impacto ambiental de la industria textil a través de la economía circular.</p>
+    </div>
+    <div class="valores-grid">
+      <div class="valor rv" style="--d:0s"><h3>Sostenibilidad</h3><p>Reducimos el impacto ambiental conectando donantes con diseñadores emergentes para darle una segunda vida a cada prenda.</p></div>
+      <div class="valor rv" style="--d:.15s"><h3>Innovación</h3><p>Impulsamos el talento local a través de técnicas de upcycling que transforman materiales textiles en piezas únicas y de alta calidad.</p></div>
+      <div class="valor rv" style="--d:.3s"><h3>Inclusión</h3><p>Fomentamos una comunidad comprometida con el planeta, conectando personas que donan con compradores conscientes.</p></div>
+      <div class="valor rv" style="--d:.45s"><h3>Economía Circular</h3><p>Impulsamos un modelo de negocio que prioriza la reutilización y la economía circular para un futuro más sostenible.</p></div>
+    </div>
+  </section>
+</div>
+<div class="page" id="p-marketplace">
+  <section class="mk-banner" id="mkBanner" aria-label="Marketplace REEVA">
+    <div class="mk-carousel" id="mkCarousel" aria-label="Prendas destacadas">
+      <div class="mk-track" id="mkTrack"><img src="images/carrusel.jpg" alt="Prendas upcycled de REEVA" draggable="false"></div>
+    </div>
+    <div class="mk-girl" aria-hidden="true"><img src="images/banner-chica.jpg" alt="" draggable="false"></div>
+  </section>
+  <section class="mk-head">
+    <h1 class="mk-title rv">Todos los productos</h1>
+    <div class="mk-filters" id="mkFilters" role="group" aria-label="Categorías">
+      <button type="button" class="on" data-cat="all">Todos los productos</button>
+      <button type="button" data-cat="upcycled">Ropa Upcycled</button>
+      <button type="button" data-cat="accesorios">Accesorios Ecológicos</button>
+      <button type="button" data-cat="sostenible">Moda Sostenible</button>
+    </div>
+  </section>
+  <section class="mk-list">
+    <div class="mk-bar">
+      <span id="mkCount">11 productos</span>
+      <div class="mk-sort">
+        <button type="button" id="mkSortBtn" aria-haspopup="listbox" aria-expanded="false">Ordenar por: <span id="mkSortLabel">Recomendados</span> <i class="mk-chev"></i></button>
+        <ul id="mkSortMenu" role="listbox" hidden>
+          <li role="option" data-sort="rec">Recomendados</li>
+          <li role="option" data-sort="asc">Precio: menor a mayor</li>
+          <li role="option" data-sort="desc">Precio: mayor a menor</li>
+          <li role="option" data-sort="az">Nombre: A-Z</li>
+        </ul>
+      </div>
+    </div>
+    <div class="mk-grid" id="mkGrid"></div>
+    <p class="mk-empty" id="mkEmpty" hidden>Pronto tendremos productos en esta categoría.</p>
+  </section>
+</div>
+<div class="page" id="p-product"><section class="pd" id="pdView"></section></div>
+<div class="page" id="p-cart"><section class="cartpg" id="cartView"></section></div>
+<div class="page" id="p-checkout"><div class="co" id="coView"></div></div>
+<div class="page" id="p-blog"><section class="blog" id="blogView" aria-label="Blog REEVA"></section></div>
+
+</main>
+
+<!-- ============ PIE DE PÁGINA ============ -->
+<footer class="site-footer">
+  <div class="foot">
+    <div class="foot-brand">
+      <a class="logo" href="#home" aria-label="REEVA, inicio"><img src="images/logo-transparente.png" alt="REEVA"></a>
+      <p>REEVA conecta personas, diseñadores emergentes y moda sostenible para darle una segunda vida a cada prenda.</p>
+    </div>
+    <div class="foot-col">
+      <h4>Contact</h4>
+      <ul>
+        <li>contacto@reeva.pa</li>
+        <li>+507 8000-0000</li>
+        <li>Calle de la Innovación 123, Ciudad de Panamá</li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Follow us</h4>
+      <div class="social">
+        <a class="fb" href="https://www.facebook.com" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a class="ig" href="https://www.instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a class="yt" href="https://www.youtube.com" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a class="xx" href="https://www.x.com" target="_blank" rel="noopener" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+        <a class="li" href="https://www.linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a class="tt" href="https://www.tiktok.com" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="legal"><span>© 2026 REEVA. Todos los derechos reservados.</span><span>Where Every Garment Tells a New Story.</span></div>
+</footer>
+
+<!-- ============ REGISTRO / INICIO DE SESIÓN ============ -->
+<div class="auth" id="authModal" aria-hidden="true">
+  <div class="auth-box" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+    <button class="auth-close" id="authClose" type="button" aria-label="Cerrar">
+      <svg viewBox="0 0 14 14" width="14" height="14" aria-hidden="true"><path d="M1.5 1.5l11 11M12.5 1.5l-11 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg>
+    </button>
+    <h2 id="authTitle">Registrarse</h2>
+    <p class="auth-switch"><span id="authSwitchText">¿Ya tienes una cuenta?</span> <a href="#" id="authSwitchLink">Iniciar sesión</a></p>
+
+    <form id="authForm" novalidate>
+      <div class="field" id="fEmail">
+        <label for="authEmail">Email</label>
+        <input id="authEmail" type="email" autocomplete="email">
+        <p class="msg" id="mEmail" hidden><i class="fa-solid fa-circle-exclamation"></i><span>Ingresa una dirección de email como ejemplo@misitio.com.</span></p>
+      </div>
+      <div class="field" id="fPass">
+        <label for="authPass">Contraseña</label>
+        <div class="pw">
+          <input id="authPass" type="password" autocomplete="new-password">
+          <button type="button" id="pwToggle" aria-label="Mostrar contraseña"><i class="fa-regular fa-eye"></i></button>
+        </div>
+        <p class="msg" id="mPass" hidden><i class="fa-solid fa-circle-exclamation"></i><span>Ingresa una contraseña de al menos 8 caracteres.</span></p>
+      </div>
+      <div class="field" id="fRobot">
+        <label class="robot"><input type="checkbox" id="authRobot"><span>No soy un robot</span></label>
+        <p class="msg" id="mRobot" hidden><i class="fa-solid fa-circle-exclamation"></i><span>Marca esta casilla para continuar.</span></p>
+      </div>
+
+      <button class="auth-submit" id="authSubmit" type="submit">Registrarse</button>
+      <div class="or"><span>o</span></div>
+      <button class="social-btn" type="button" data-provider="Google"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.5 5.4 2.6 13.2l7.9 6.1C12.4 13.6 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.3 5.5-4.8 7.2l7.5 5.8c4.4-4.1 7.1-10.1 7.1-17.5z"/><path fill="#FBBC05" d="M10.5 28.7A14.5 14.5 0 0 1 9.5 24c0-1.6.3-3.2.8-4.7l-7.9-6.1A24 24 0 0 0 0 24c0 3.9.9 7.5 2.6 10.8l7.9-6.1z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.5-5.8c-2.1 1.4-4.9 2.3-8.4 2.3-6.3 0-11.6-4.1-13.5-9.8l-7.9 6.1C6.5 42.6 14.6 48 24 48z"/></svg><span>Continuar con Google</span></button>
+      <button class="social-btn" type="button" data-provider="Facebook"><i class="fa-brands fa-facebook" style="color:#1877f2"></i><span>Continuar con Facebook</span></button>
+      <p class="auth-note" id="authNote">Al registrarte, tu perfil se establecerá automáticamente como público. Puedes cambiar esto más tarde en la configuración de tu perfil.</p>
+    </form>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="script.js"></script>
+<script src="marketplace.js"></script>
+<script src="blog.js"></script>
+</body>
+</html>
